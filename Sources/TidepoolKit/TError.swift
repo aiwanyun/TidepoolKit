@@ -140,11 +140,11 @@ extension TError: LocalizedError {
         case .missingAuthenticationState:
             return LocalizedString("缺少身份验证状态。", comment: "The default localized description of the missingAuthenticationState error")
         case .authenticationError(let message):
-            return String(format: LocalizedString("Authentication error: %1$@", comment: "The format string for an authentication error with a message. (1: the error message describing why authentication errored"), message)
+            return String(format: LocalizedString("身份验证错误：%1$@", comment: "The format string for an authentication error with a message. (1: the error message describing why authentication errored"), message)
         case .requestInvalid:
             return LocalizedString("该请求无效。", comment: "The default localized description of the request invalid error")
         case .invalidURL(let components):
-            return String(format: LocalizedString("Failure creating request URL: %1$@", comment: "Error description for invalidURL (1: url components)"), String(describing: components))
+            return String(format: LocalizedString("创建请求 URL 失败：%1$@", comment: "Error description for invalidURL (1: url components)"), String(describing: components))
         case .requestMalformed:
             return LocalizedString("该请求无效。", comment: "The default localized description of the request malformed error")
         case .requestMalformedJSON:
@@ -162,7 +162,7 @@ extension TError: LocalizedError {
         case .responseUnexpected:
             return LocalizedString("该请求返回了意外的响应。", comment: "The default localized description of the response unexpected error")
         case .responseUnexpectedStatusCode(let response, _):
-            return String(format: LocalizedString("The request returned an unexpected response status code: %1$@", comment: "The format string for localized description of the response unexpected status code error (1: status code)"), String(describing: response.statusCode))
+            return String(format: LocalizedString("请求返回了意外的响应状态代码：%1$@", comment: "The format string for localized description of the response unexpected status code error (1: status code)"), String(describing: response.statusCode))
         case .responseNotAuthenticated:
             return LocalizedString("该请求返回了未经身分的响应。", comment: "The default localized description of the response not authenticated error")
         case .responseMissingJSON:

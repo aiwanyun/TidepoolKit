@@ -141,15 +141,15 @@ class RootTableViewController: UITableViewController, TAPIObserver {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch Section(rawValue: section)! {
         case .status:
-            return NSLocalizedString("Status", comment: "The title for the header of the status section")
+            return NSLocalizedString("地位", comment: "The title for the header of the status section")
         case .authentication:
-            return NSLocalizedString("Authentication", comment: "The title for the header of the authentication section")
+            return NSLocalizedString("验证", comment: "The title for the header of the authentication section")
         case .profile:
-            return NSLocalizedString("Profile", comment: "The title for the header of the profile section")
+            return NSLocalizedString("轮廓", comment: "The title for the header of the profile section")
         case .dataSet:
-            return NSLocalizedString("Data Set", comment: "The title for the header of the data set section")
+            return NSLocalizedString("数据集", comment: "The title for the header of the data set section")
         case .datum:
-            return NSLocalizedString("Datum", comment: "The title for the header of the datum section")
+            return NSLocalizedString("基准", comment: "The title for the header of the datum section")
         }
     }
 
@@ -168,7 +168,7 @@ class RootTableViewController: UITableViewController, TAPIObserver {
         }
     }
 
-    private let defaultStatusLabelText = NSLocalizedString("-", comment: "The default status label text")
+    private let defaultStatusLabelText = NSLocalizedString(" - ", comment: "The default status label text")
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Section(rawValue: indexPath.section)! {
@@ -183,14 +183,14 @@ class RootTableViewController: UITableViewController, TAPIObserver {
             let cell = tableView.dequeueReusableCell(withIdentifier: TextButtonTableViewCell.className, for: indexPath) as! TextButtonTableViewCell
             switch Authentication(rawValue: indexPath.row)! {
             case .account:
-                cell.textLabel?.text = NSLocalizedString("Account", comment: "The text label of the account cell")
+                cell.textLabel?.text = NSLocalizedString("帐户", comment: "The text label of the account cell")
                 cell.accessoryType = .disclosureIndicator
                 cell.isEnabled = session == nil
             case .refresh:
-                cell.textLabel?.text = NSLocalizedString("Refresh", comment: "The text label of the authentication refresh cell")
+                cell.textLabel?.text = NSLocalizedString("刷新", comment: "The text label of the authentication refresh cell")
                 cell.isEnabled = session != nil
             case .revoke:
-                cell.textLabel?.text = NSLocalizedString("Revoke Token", comment: "The text label of the authentication revoke cell")
+                cell.textLabel?.text = NSLocalizedString("撤销令牌", comment: "The text label of the authentication revoke cell")
                 cell.isEnabled = session != nil
             }
             return cell
@@ -200,7 +200,7 @@ class RootTableViewController: UITableViewController, TAPIObserver {
             cell.isEnabled = session != nil
             switch Profile(rawValue: indexPath.row)! {
             case .get:
-                cell.textLabel?.text = NSLocalizedString("Get Profile", comment: "The text label of the get profile cell")
+                cell.textLabel?.text = NSLocalizedString("获取个人资料", comment: "The text label of the get profile cell")
             }
             return cell
         case .dataSet:
@@ -209,9 +209,9 @@ class RootTableViewController: UITableViewController, TAPIObserver {
             cell.isEnabled = session != nil
             switch DataSet(rawValue: indexPath.row)! {
             case .list:
-                cell.textLabel?.text = NSLocalizedString("List Data Sets", comment: "The text label of the list data sets cell")
+                cell.textLabel?.text = NSLocalizedString("列出数据集", comment: "The text label of the list data sets cell")
             case .create:
-                cell.textLabel?.text = NSLocalizedString("Create Data Set", comment: "The text label of the create data set cell")
+                cell.textLabel?.text = NSLocalizedString("创建数据集", comment: "The text label of the create data set cell")
             }
             return cell
         case .datum:
@@ -219,13 +219,13 @@ class RootTableViewController: UITableViewController, TAPIObserver {
             cell.accessoryType = .disclosureIndicator
             switch Datum(rawValue: indexPath.row)! {
             case .list:
-                cell.textLabel?.text = NSLocalizedString("List Data", comment: "The text label of the list data cell")
+                cell.textLabel?.text = NSLocalizedString("列出数据", comment: "The text label of the list data cell")
                 cell.isEnabled = session != nil
             case .create:
-                cell.textLabel?.text = NSLocalizedString("Create Data", comment: "The text label of the create data cell")
+                cell.textLabel?.text = NSLocalizedString("创建数据", comment: "The text label of the create data cell")
                 cell.isEnabled = session != nil && dataSetId != nil
             case .delete:
-                cell.textLabel?.text = NSLocalizedString("Delete Data", comment: "The text label of the delete data cell")
+                cell.textLabel?.text = NSLocalizedString("删除数据", comment: "The text label of the delete data cell")
                 cell.isEnabled = session != nil && dataSetId != nil && datumSelectors != nil
             }
             return cell

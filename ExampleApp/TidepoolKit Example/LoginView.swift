@@ -54,14 +54,14 @@ public struct LoginView: View {
                         logo
                             .padding(.horizontal, 30)
                             .padding(.bottom)
-                        Text(NSLocalizedString("Environment", comment: "Label title for displaying selected Tidepool server environment."))
+                        Text(NSLocalizedString("环境", comment: "Label title for displaying selected Tidepool server environment."))
                             .bold()
                         Text(selectedEnvironment.description)
                         if isLoggedIn {
-                            Text(NSLocalizedString("You are logged in.", comment: "LoginViewModel description text when logged in"))
+                            Text(NSLocalizedString("您已登录。", comment: "LoginViewModel description text when logged in"))
                                 .padding()
                         } else {
-                            Text(NSLocalizedString("You are not logged in.", comment: "LoginViewModel description text when not logged in"))
+                            Text(NSLocalizedString("你没有登录。", comment: "LoginViewModel description text when not logged in"))
                                 .padding()
                         }
 
@@ -103,7 +103,7 @@ public struct LoginView: View {
         buttons.append(.cancel())
 
         
-        return ActionSheet(title: Text(NSLocalizedString("Environment", comment: "Tidepool login environment action sheet title")),
+        return ActionSheet(title: Text(NSLocalizedString("环境", comment: "Tidepool login environment action sheet title")),
                            message: Text(selectedEnvironment.description), buttons: buttons)
     }
 
@@ -121,7 +121,7 @@ public struct LoginView: View {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
             } else {
-                Text(NSLocalizedString("Login", comment: "Tidepool login button title"))
+                Text(NSLocalizedString("登录", comment: "Tidepool login button title"))
             }
         }
         .buttonStyle(ActionButtonStyle())
@@ -136,7 +136,7 @@ public struct LoginView: View {
                 dismiss()
             }
         }) {
-            Text(NSLocalizedString("Logout", comment: "Tidepool logout button title"))
+            Text(NSLocalizedString("登出", comment: "Tidepool logout button title"))
         }
         .buttonStyle(ActionButtonStyle(.secondary))
         .disabled(isLoggingIn)
@@ -162,7 +162,7 @@ public struct LoginView: View {
 
     private func setError(_ error: Error?) {
         if case .requestNotAuthenticated = error as? TError {
-            self.message = NSLocalizedString("Wrong username or password.", comment: "The message for the request not authenticated error")
+            self.message = NSLocalizedString("错误的用户名或密码。", comment: "The message for the request not authenticated error")
         } else {
             self.message = error?.localizedDescription ?? ""
         }
@@ -175,7 +175,7 @@ public struct LoginView: View {
         }
     }
 
-    private var closeButtonTitle: String { NSLocalizedString("Close", comment: "Close navigation button title of an onboarding section page view") }
+    private var closeButtonTitle: String { NSLocalizedString("关闭", comment: "Close navigation button title of an onboarding section page view") }
 }
 
 struct LoginView_Previews: PreviewProvider {

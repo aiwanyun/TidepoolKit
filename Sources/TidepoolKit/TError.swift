@@ -113,7 +113,7 @@ extension TError: LocalizedError {
     public var recoverySuggestion: String? {
         switch self {
         case .sessionMissing:
-            return LocalizedString("Please log in.", comment: "The recoverySuggestion of the session missing error")
+            return LocalizedString("请登录。", comment: "The recoverySuggestion of the session missing error")
         default:
             return nil
         }
@@ -122,57 +122,57 @@ extension TError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .network:
-            return LocalizedString("A network error occurred.", comment: "The default localized description of the network error")
+            return LocalizedString("发生网络错误。", comment: "The default localized description of the network error")
         case .sessionMissing:
-            return LocalizedString("The session is missing.", comment: "The default localized description of the session missing error")
+            return LocalizedString("会话丢失。", comment: "The default localized description of the session missing error")
         case .loginCanceled:
-            return LocalizedString("Login was canceled.", comment: "Localized description for TError.loginCanceled")
+            return LocalizedString("登录被取消。", comment: "Localized description for TError.loginCanceled")
         case .refreshTokenMissing:
-            return LocalizedString("The refreshToken is missing.", comment: "The default localized description of the refresh token missing error")
+            return LocalizedString("令人振奋的是缺少。", comment: "The default localized description of the refresh token missing error")
         case .missingAuthenticationIssuer:
-            return LocalizedString("Missing authentication issuer.", comment: "The default localized description of the missingAuthenticationIssuer error")
+            return LocalizedString("缺少身份验证发行者。", comment: "The default localized description of the missingAuthenticationIssuer error")
         case .missingAuthenticationConfiguration:
-            return LocalizedString("Missing authentication configuration.", comment: "The default localized description of the missingAuthenticationConfiguration error")
+            return LocalizedString("缺少身份验证配置。", comment: "The default localized description of the missingAuthenticationConfiguration error")
         case .missingAuthenticationCode:
-            return LocalizedString("Missing authentication challenge response code.", comment: "The default localized description of the missingAuthenticationCode error")
+            return LocalizedString("缺少身份验证挑战响应代码。", comment: "The default localized description of the missingAuthenticationCode error")
         case .missingAuthenticationToken:
-            return LocalizedString("Missing authentication token.", comment: "The default localized description of the missingAuthenticationToken error")
+            return LocalizedString("缺少身份验证令牌。", comment: "The default localized description of the missingAuthenticationToken error")
         case .missingAuthenticationState:
-            return LocalizedString("Missing authentication state.", comment: "The default localized description of the missingAuthenticationState error")
+            return LocalizedString("缺少身份验证状态。", comment: "The default localized description of the missingAuthenticationState error")
         case .authenticationError(let message):
             return String(format: LocalizedString("Authentication error: %1$@", comment: "The format string for an authentication error with a message. (1: the error message describing why authentication errored"), message)
         case .requestInvalid:
-            return LocalizedString("The request was invalid.", comment: "The default localized description of the request invalid error")
+            return LocalizedString("该请求无效。", comment: "The default localized description of the request invalid error")
         case .invalidURL(let components):
             return String(format: LocalizedString("Failure creating request URL: %1$@", comment: "Error description for invalidURL (1: url components)"), String(describing: components))
         case .requestMalformed:
-            return LocalizedString("The request was invalid.", comment: "The default localized description of the request malformed error")
+            return LocalizedString("该请求无效。", comment: "The default localized description of the request malformed error")
         case .requestMalformedJSON:
-            return LocalizedString("The request was invalid.", comment: "The default localized description of the request malformed JSON error")
+            return LocalizedString("该请求无效。", comment: "The default localized description of the request malformed JSON error")
         case .requestNotAuthenticated:
-            return LocalizedString("The request was not authenticated.", comment: "The default localized description of the request not authenticated error")
+            return LocalizedString("该请求未经认证。", comment: "The default localized description of the request not authenticated error")
         case .requestNotAuthorized:
-            return LocalizedString("The request was not authorized.", comment: "The default localized description of the request not authorized error")
+            return LocalizedString("该请求未经授权。", comment: "The default localized description of the request not authorized error")
         case .requestEmailNotVerified:
-            return LocalizedString("The email is not verified.", comment: "The default localized description of the request email not verified error")
+            return LocalizedString("该电子邮件未经验证。", comment: "The default localized description of the request email not verified error")
         case .requestTermsOfServiceNotAccepted:
-            return LocalizedString("The Terms of Service are not accepted.", comment: "The default localized description of the request terms of service not accepted error")
+            return LocalizedString("服务条款不接受。", comment: "The default localized description of the request terms of service not accepted error")
         case .requestResourceNotFound:
-            return LocalizedString("The requested resource was not found.", comment: "The default localized description of the request resource not found error")
+            return LocalizedString("找不到要求的资源。", comment: "The default localized description of the request resource not found error")
         case .responseUnexpected:
-            return LocalizedString("The request returned an unexpected response.", comment: "The default localized description of the response unexpected error")
+            return LocalizedString("该请求返回了意外的响应。", comment: "The default localized description of the response unexpected error")
         case .responseUnexpectedStatusCode(let response, _):
             return String(format: LocalizedString("The request returned an unexpected response status code: %1$@", comment: "The format string for localized description of the response unexpected status code error (1: status code)"), String(describing: response.statusCode))
         case .responseNotAuthenticated:
-            return LocalizedString("The request returned an unauthenticated response.", comment: "The default localized description of the response not authenticated error")
+            return LocalizedString("该请求返回了未经身分的响应。", comment: "The default localized description of the response not authenticated error")
         case .responseMissingJSON:
-            return LocalizedString("The request returned an empty JSON response.", comment: "The default localized description of the response missing JSON error")
+            return LocalizedString("该请求返回了空的JSON响应。", comment: "The default localized description of the response missing JSON error")
         case .responseMalformedJSON:
-            return LocalizedString("The request returned an invalid JSON response.", comment: "The default localized description of the response malformed JSON error")
+            return LocalizedString("该请求返回了无效的JSON响应。", comment: "The default localized description of the response malformed JSON error")
         case .responseUnexpectedJSON:
-            return LocalizedString("The request returned an unexpected JSON response.", comment: "The default localized description of the response unexpected JSON error")
+            return LocalizedString("该请求返回了意外的JSON响应。", comment: "The default localized description of the response unexpected JSON error")
         case .responseMalformed:
-            return LocalizedString("The request returned an invalid response.", comment: "The default localized description of the response malformed data error")
+            return LocalizedString("该请求返回了无效的响应。", comment: "The default localized description of the response malformed data error")
         case .errorResponse(let reason):
             return reason
         }
